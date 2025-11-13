@@ -1,0 +1,97 @@
+Here is a **simplified, clean, and shorter** version of the README — still professional, but easier to read and less detailed.
+
+---
+
+# **Virtual Memory & CPU Scheduling Simulator**
+
+This project is a C++ simulation that models key operating system concepts, including demand paging, TLB lookups, page replacement, CPU bursts, and scheduling algorithms.
+
+---
+
+## **Concepts Included**
+
+* Demand paging with page faults
+* Two‐level page tables
+* Translation Lookaside Buffer (TLB) with LRU eviction
+* Advanced Clock page replacement (reference & modified bits)
+* CPU burst execution and thread interactions
+* Scheduling policies: FCFS, Round Robin, Priority, MLFQ
+* Logging of TLB hits/misses and page faults
+
+---
+
+## **Project Files**
+
+```
+main.cpp
+Process.h / Process.cpp
+CPU.h / CPU.cpp
+Scheduler.h / Scheduler.cpp
+TLB.h / TLB.cpp
+TwoLevelPageTable.h / TwoLevelPageTable.cpp
+Clock.h / Clock.cpp
+README.md
+```
+
+---
+
+## **Build Instructions**
+
+Compile all `.cpp` files:
+
+```bash
+g++ main.cpp Process.cpp CPU.cpp Scheduler.cpp TLB.cpp TwoLevelPageTable.cpp Clock.cpp -o simulator -std=c++17
+```
+
+Run the program:
+
+```bash
+./simulator
+```
+
+---
+
+## **Command Line Usage**
+
+```
+./simulator <policy> <tlbSize> <frameCount>
+```
+
+Example:
+
+```
+./simulator RR 16 8
+```
+
+**Options:**
+
+* `policy`: FCFS, RR, Priority, MLFQ
+* `tlbSize`: TLB capacity
+* `frameCount`: number of physical frames
+
+---
+
+## **How It Works (Short Version)**
+
+* **Scheduler** selects which process/thread runs each tick.
+* **CPU** simulates execution and memory accesses.
+* **TLB** caches page translations and counts hits/misses.
+* **Two-Level Page Table** handles virtual-to-physical mapping.
+* **Clock Algorithm** decides which page to evict on a page fault.
+
+The simulation prints statistics at the end (CPU cycles, TLB hits/misses, and page faults).
+
+---
+
+## **Example Workload**
+
+The program creates 3 sample processes:
+
+* Sequential memory access
+* Random access
+* Localized “hot set” access
+
+These demonstrate differences in paging behavior.
+
+---
+
